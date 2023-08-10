@@ -1,15 +1,17 @@
+import { useNavigate } from "react-router-dom";
 import { styled } from "styled-components";
 const navContentList = [
-  { name: "홈", url: "/img/home.png" },
-  { name: "검색", url: "/img/search.png" },
-  { name: "프로필", url: "/img/profile.png" },
-  { name: "가족", url: "/img/family.png" },
-  { name: "채팅", url: "/img/chat.png" },
-  { name: "A.I가이드", url: "/img/AI.png" },
-  { name: "가족일기", url: "/img/diary.png" },
-  { name: "설정", url: "/img/setting.png" },
+  { name: "홈", image: "/img/home.png", url: "/" },
+  { name: "검색", image: "/img/search.png", url: "" },
+  { name: "프로필", image: "/img/profile.png", url: "/User" },
+  { name: "가족", image: "/img/family.png", url: "" },
+  { name: "채팅", image: "/img/chat.png", url: "" },
+  { name: "A.I가이드", image: "/img/AI.png", url: "" },
+  { name: "가족일기", image: "/img/diary.png", url: "" },
+  { name: "설정", image: "/img/setting.png", url: "" },
 ];
 const LeftBar = () => {
+  const navigate = useNavigate();
   return (
     <LeftBarBox>
       <LogoBox>LOGO</LogoBox>
@@ -17,8 +19,13 @@ const LeftBar = () => {
         <ul style={{ padding: "0", margin: "0" }}>
           {navContentList.map((value, index) => {
             return (
-              <NavContent key={index}>
-                <img src={value.url} style={{ marginRight: "0.5rem" }} />
+              <NavContent
+                key={index}
+                onClick={() => {
+                  navigate(`${value.url}`);
+                }}
+              >
+                <img src={value.image} style={{ marginRight: "0.5rem" }} />
                 {value.name}
               </NavContent>
             );
@@ -60,11 +67,16 @@ const Navigation = styled.div`
 `;
 const NavContent = styled.li`
   list-style-type: none;
-  margin-left: 3rem;
+  margin-left: 1rem;
+  padding-left: 2rem;
+  border-radius: 20px;
   line-height: 5rem;
-  padding: 0;
   color: #2d9037;
   font-size: 1.5rem;
+  cursor: pointer;
+  &:hover {
+    background-color: #e3efdb;
+  }
 `;
 
 const UserInfo = styled.div`

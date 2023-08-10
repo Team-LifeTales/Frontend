@@ -5,6 +5,8 @@ const HomeList = () => {
   return (
     <ImageList>
       <Post></Post>
+      <Post></Post>
+      <Post></Post>
     </ImageList>
   );
 };
