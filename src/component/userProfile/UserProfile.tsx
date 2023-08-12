@@ -5,7 +5,12 @@ const UserProfile = () => {
     <>
       <UserProfileBox>
         <ImageWithTitleBox>
-          <UserImage></UserImage>
+          <UserImage>
+            <Card>
+              <Front></Front>
+              <Back></Back>
+            </Card>
+          </UserImage>
           <UserTitle>김해김씨</UserTitle>
         </ImageWithTitleBox>
         <UserInfoBox>
@@ -21,6 +26,8 @@ const UserProfile = () => {
 const UserProfileBox = styled.div`
   display: flex;
   margin: 4rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid;
 `;
 const ImageWithTitleBox = styled.div`
   display: flex;
@@ -31,11 +38,34 @@ const ImageWithTitleBox = styled.div`
   margin-right: 2rem;
 `;
 const UserImage = styled.div`
-  width: 10rem;
-  height: 10rem;
-  background-color: green;
-  border-radius: 70%;
+  width: 15rem;
+  height: 15rem;
   overflow: hidden;
+`;
+const Card = styled.div`
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transition: 0.7s;
+  border-radius: 50%;
+  transform-style: preserve-3d;
+  &:hover {
+    transform: rotateY(180deg);
+  }
+`;
+const CardOption = styled.div`
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  backface-visibility: hidden;
+`;
+const Front = styled(CardOption)`
+  background: green;
+`;
+const Back = styled(CardOption)`
+  background: royalblue;
+  transform: rotateY(180deg);
 `;
 const UserTitle = styled.div``;
 const UserInfoBox = styled.div``;

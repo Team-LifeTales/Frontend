@@ -11,24 +11,15 @@ const Post = () => {
   };
   return (
     <>
-      <PostBox>
-        <PostTitle>2023.08.08</PostTitle>
-        <PostImage src="/img/AI.png" onClick={onModal}></PostImage>
-      </PostBox>
+      <PostImage src="/img/AI.png" onClick={onModal}></PostImage>
       <PostDetail modalIsOpen={modalIsOpen} offModal={offModal}></PostDetail>
     </>
   );
 };
-const PostBox = styled.div`
-  margin-top: 5rem;
-  margin-bottom: 5rem;
-`;
-const PostTitle = styled.div`
-  text-align: right;
-`;
+
 const PostImage = styled.img`
-  width: 45rem;
-  height: 35rem;
+  width: 100%;
+  height: 100%;
   cursor: pointer;
   object-fit: cover;
 `;

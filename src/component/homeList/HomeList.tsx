@@ -4,13 +4,22 @@ import Post from "../post/Post";
 const HomeList = () => {
   return (
     <ImageList>
-      <Post></Post>
-      <Post></Post>
-      <Post></Post>
+      <PostBox>
+        <div>123123</div>
+        <Post></Post>
+      </PostBox>
+      <PostBox>
+        <Post></Post>
+      </PostBox>
     </ImageList>
   );
 };
-
+const PostBox = styled.div`
+  width: 45rem;
+  height: 35rem;
+  margin-bottom: 10rem;
+  margin-top: 5rem;
+`;
 const ImageList = styled.div`
   width: 100%;
   height: 100%;
