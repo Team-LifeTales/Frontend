@@ -1,6 +1,8 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { styled } from "styled-components";
 const UserProfile = () => {
+  const navigate = useNavigate();
   return (
     <>
       <UserProfileBox>
@@ -18,7 +20,13 @@ const UserProfile = () => {
           <UserInfo>게시글 0</UserInfo>
           <UserIntro>에습하의 윈터입니다 반가워요 ^^</UserIntro>
         </UserInfoBox>
-        <CreateButton>글쓰기</CreateButton>
+        <CreateButton
+          onClick={() => {
+            navigate("/Create");
+          }}
+        >
+          글쓰기
+        </CreateButton>
       </UserProfileBox>
     </>
   );

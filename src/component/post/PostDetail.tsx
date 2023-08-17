@@ -108,7 +108,7 @@ const customStyles = {
     boxShadow: "0 3px 10px 0 rgba(0, 0, 0, 0.15)",
     width: "80rem",
     height: "50rem",
-    backgroundColor: "#f5f5f5",
+    backgroundColor: `var(--postDetailbackground-color)`,
     padding: "0",
   },
 };

@@ -2,10 +2,10 @@ import { useNavigate } from "react-router-dom";
 import { styled } from "styled-components";
 const navContentList = [
   { name: "홈", image: "/img/home.png", url: "/" },
-  { name: "검색", image: "/img/search.png", url: "" },
+  { name: "검색", image: "/img/search.png", url: "/Search" },
   { name: "프로필", image: "/img/profile.png", url: "/User" },
   { name: "가족", image: "/img/family.png", url: "" },
-  { name: "채팅", image: "/img/chat.png", url: "" },
+  { name: "채팅", image: "/img/chat.png", url: "/ChatRoom" },
   { name: "A.I가이드", image: "/img/AI.png", url: "" },
   { name: "가족일기", image: "/img/diary.png", url: "" },
   { name: "설정", image: "/img/setting.png", url: "" },
@@ -48,9 +48,9 @@ const LeftBar = () => {
 const LeftBarBox = styled.div`
   width: 15rem;
   height: 100vh;
-  background-color: #f8f2e9;
+  background-color: var(--background-color));
   position: fixed;
-  @media screen and (max-width: 1000px) {
+  @media screen and (max-width: 1100px) {
     display: none;
   }
 `;
@@ -71,7 +71,7 @@ const NavContent = styled.li`
   padding-left: 2rem;
   border-radius: 20px;
   line-height: 5rem;
-  color: #2d9037;
+  color: var(--green-color);
   font-size: 1.5rem;
   cursor: pointer;
   &:hover {
@@ -86,7 +86,7 @@ const UserInfo = styled.div`
   margin-top: 6rem;
   line-height: 1rem;
 `;
-const UserImg = styled.div`
+export const UserImg = styled.div`
   width: 5rem;
   height: 5rem;
   background-color: green;
@@ -94,11 +94,11 @@ const UserImg = styled.div`
   overflow: hidden;
   margin-right: 1rem;
 `;
-const UserImgContent = styled.img`
+export const UserImgContent = styled.img`
   width: 100%;
   height: 100%;
   object-fit: cover;
 `;
-const UserName = styled.div``;
+export const UserName = styled.div``;
 
 export default LeftBar;

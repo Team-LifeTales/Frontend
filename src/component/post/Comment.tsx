@@ -18,7 +18,7 @@ const CommentInput = styled.textarea`
   border: none;
   resize: none;
   outline: none;
-  background-color: #f5f5f5;
+  background-color: var(--postDetailbackground-color);
   padding: 0.5rem;
 `;
 export default Comment;

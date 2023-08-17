@@ -25,7 +25,7 @@ const ImageList = styled.div`
   height: 100%;
   display: grid;
   justify-content: center;
-  background-color: #f8f2e9;
+  background-color: var(--background-color);
   padding-right: 5rem;
   @media screen and (max-width: 1200px) {
     padding-right: 0;

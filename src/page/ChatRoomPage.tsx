@@ -1,26 +1,25 @@
 import React from "react";
 import LeftBar from "../component/leftBar/LeftBar";
-import UserProfile from "../component/userProfile/UserProfile";
 import { styled } from "styled-components";
-import PostGrid from "../component/post/PostGrid";
-const UserPage = () => {
+import Chat from "../component/chatRoom/Chat";
+const ChatRoomPage = () => {
   return (
     <>
       <LeftBar />
-      <UserBox>
-        <UserProfile></UserProfile>
-        <PostGrid></PostGrid>
-      </UserBox>
+      <ChatRoomBox>
+        <Chat></Chat>
+      </ChatRoomBox>
     </>
   );
 };
-const UserBox = styled.div`
+
+const ChatRoomBox = styled.div`
   margin-left: 15rem;
   display: grid;
   justify-content: center;
-
+  padding-top: 2rem;
   @media screen and (max-width: 1100px) {
     margin-left: 0;
   }
 `;
-export default UserPage;
+export default ChatRoomPage;
