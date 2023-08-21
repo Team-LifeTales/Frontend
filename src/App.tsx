@@ -5,11 +5,17 @@ import CreatePage from "./page/CreatePage";
 import UpdatePage from "./page/UpdatePage";
 import SearchPage from "./page/SearchPage";
 import ChatRoomPage from "./page/ChatRoomPage";
+import LoginPage from "./page/LoginPage";
+import SignUpPage from "./page/SignUpPage";
 const App = () => {
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <HomePage />,
+      element: <LoginPage />,
+    },
+    {
+      path: "/SignUp",
+      element: <SignUpPage />,
     },
     {
       path: "/User",
@@ -30,6 +36,10 @@ const App = () => {
     {
       path: "/ChatRoom",
       element: <ChatRoomPage />,
+    },
+    {
+      path: "/Home",
+      element: <HomePage />,
     },
   ]);
   return (

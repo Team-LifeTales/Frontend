@@ -32,16 +32,16 @@ const Search = () => {
     </>
   );
 };
-const SearchInputBox = styled.div`
+export const SearchInputBox = styled.div`
   position: relative;
   display: inline-block;
 `;
-const SearchInput = styled(TitleInput)`
+export const SearchInput = styled(TitleInput)`
   width: 100%;
   padding-left: 5rem;
   padding-right: 5rem;
 `;
-const SearchIcon = styled.img`
+export const SearchIcon = styled.img`
   position: absolute;
   width: 2.8rem;
   height: 2.8rem;
@@ -49,7 +49,7 @@ const SearchIcon = styled.img`
   left: 1rem;
   transform: translateY(-50%);
 `;
-const XIcon = styled.img`
+export const XIcon = styled.img`
   position: absolute;
   width: 2.8rem;
   height: 2.8rem;
