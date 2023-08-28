@@ -3,18 +3,24 @@ import { styled } from "styled-components";
 import { TitleInput } from "../upload/Create";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
+import { useAppDispatch } from "../../app/hooks";
+import { loginAsync } from "../../features/loginSlice/loginSlice";
 
 interface LoginInputs {
   id: string;
-  password: string;
+  pwd: string;
 }
 const Login = () => {
+  const dispatch = useAppDispatch();
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<LoginInputs>();
-  const onSubmit = handleSubmit((data) => console.log(data));
+  const onSubmit = handleSubmit((data) => {
+    console.log(data);
+    dispatch(loginAsync(data));
+  });
   const navigate = useNavigate();
   return (
     <form onSubmit={onSubmit}>
@@ -37,7 +43,7 @@ const Login = () => {
         <ErrorMessage>{errors.id?.message}</ErrorMessage>
         <LoginInput
           placeholder="비밀번호"
-          {...register("password", {
+          {...register("pwd", {
             required: "비밀번호를 채워주세요.",
             minLength: {
               value: 8,
@@ -55,7 +61,7 @@ const Login = () => {
             },
           })}
         ></LoginInput>
-        <ErrorMessage>{errors.password?.message}</ErrorMessage>
+        <ErrorMessage>{errors.pwd?.message}</ErrorMessage>
         <LoginButton>로그인하기</LoginButton>
         <KakaoWithNaver>
           <KakaoButton type="button"></KakaoButton>

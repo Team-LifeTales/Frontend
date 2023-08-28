@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { styled } from "styled-components";
 const navContentList = [
-  { name: "홈", image: "/img/home.png", url: "/" },
+  { name: "홈", image: "/img/home.png", url: "/Home" },
   { name: "검색", image: "/img/search.png", url: "/Search" },
   { name: "프로필", image: "/img/profile.png", url: "/User" },
   { name: "가족", image: "/img/family.png", url: "" },

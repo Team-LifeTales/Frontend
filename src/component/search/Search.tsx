@@ -35,9 +35,10 @@ const Search = () => {
 export const SearchInputBox = styled.div`
   position: relative;
   display: inline-block;
+  margin: 4rem;
 `;
 export const SearchInput = styled(TitleInput)`
-  width: 100%;
+  width: 70vw;
   padding-left: 5rem;
   padding-right: 5rem;
 `;

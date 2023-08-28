@@ -1,16 +1,37 @@
 import { styled } from "styled-components";
 import Post from "../post/Post";
+import { useInView } from "react-intersection-observer";
+import { useEffect, useState } from "react";
 
 const HomeList = () => {
+  const [testArray, setTestArray] = useState(["test", "test"]);
+
+  const [ref, inView] = useInView({
+    threshold: 1,
+    skip: false,
+  });
+  useEffect(() => {
+    if (inView) {
+      setTestArray([...testArray, "test"]);
+      console.log(testArray);
+    }
+  }, [inView]);
   return (
     <ImageList>
       <PostBox>
-        <div>123123</div>
         <Post></Post>
       </PostBox>
       <PostBox>
         <Post></Post>
       </PostBox>
+      {testArray?.map((value, index) => {
+        return (
+          <PostBox key={index}>
+            <Post></Post>
+          </PostBox>
+        );
+      })}
+      <div style={{ width: "1rem", height: "15rem" }} ref={ref}></div>
     </ImageList>
   );
 };

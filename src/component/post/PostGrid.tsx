@@ -24,7 +24,7 @@ const PostGrid = () => {
 };
 const PostBox = styled.div`
   width: 98%;
-  height: 400px;
+  height: 100%;
   margin: 1%;
   border: 0;
 `;

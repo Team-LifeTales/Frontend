@@ -1,8 +1,25 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { styled } from "styled-components";
+import { useAppDispatch, useAppSelector } from "../../app/hooks";
+import {
+  edit,
+  editDone,
+} from "../../features/userProfileSlice/userProfileSlice";
 const UserProfile = () => {
+  const dispatch = useAppDispatch();
+  const status = useAppSelector((state) => state.userProfile.status);
+
   const navigate = useNavigate();
+
+  useEffect(() => {
+    // mount 시점, deps update 시점에 실행할 작업 (componentDidMount)
+    return () => {
+      //unmount 시점, deps update 직전에 실행할 작업 (componentWillUnmount)
+      dispatch(editDone());
+    };
+  }, []);
+  useEffect(() => {}, [status]);
   return (
     <>
       <UserProfileBox>
@@ -16,17 +33,48 @@ const UserProfile = () => {
           <UserTitle>김해김씨</UserTitle>
         </ImageWithTitleBox>
         <UserInfoBox>
-          <UserName>홍길동</UserName>
+          {status === "edit" ? (
+            <UserNameInput value="홍길동" readOnly />
+          ) : (
+            <UserName>홍길동</UserName>
+          )}
+
           <UserInfo>게시글 0</UserInfo>
-          <UserIntro>에습하의 윈터입니다 반가워요 ^^</UserIntro>
+          {status === "edit" ? (
+            <UserIntroInput
+              value="에습하의 윈터입니다 반가워요 ^^"
+              readOnly
+            ></UserIntroInput>
+          ) : (
+            <UserIntro>에습하의 윈터입니다 반가워요 ^^</UserIntro>
+          )}
         </UserInfoBox>
-        <CreateButton
-          onClick={() => {
-            navigate("/Create");
-          }}
-        >
-          글쓰기
-        </CreateButton>
+        <ButtonBox>
+          <CreateButton
+            onClick={() => {
+              navigate("/Create");
+            }}
+          >
+            글쓰기
+          </CreateButton>
+          {status === "edit" ? (
+            <CreateButton
+              onClick={() => {
+                dispatch(editDone());
+              }}
+            >
+              적용하기
+            </CreateButton>
+          ) : (
+            <CreateButton
+              onClick={() => {
+                dispatch(edit());
+              }}
+            >
+              편집하기
+            </CreateButton>
+          )}
+        </ButtonBox>
       </UserProfileBox>
     </>
   );
@@ -80,15 +128,25 @@ const UserInfoBox = styled.div``;
 const UserName = styled.div`
   line-height: 3rem;
 `;
+const UserNameInput = styled.input`
+  line-height: 3rem;
+`;
 const UserInfo = styled.div`
   line-height: 3rem;
 `;
 const UserIntro = styled.div`
   margin-top: 2rem;
+  width: 20rem;
+`;
+const UserIntroInput = styled.input`
+  margin-top: 2rem;
+  width: 20rem;
+`;
+const ButtonBox = styled.div`
+  margin-left: 20rem;
 `;
 const CreateButton = styled.button`
   width: 5rem;
   height: 2rem;
-  margin-left: 30rem;
 `;
 export default UserProfile;
